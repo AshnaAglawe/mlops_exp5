@@ -26,10 +26,11 @@ for _ in range(20):
     y = 2 * x - 5 + rng.randn(1000).reshape(-1,1)
     X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=50)
     # Fitting the model
-
-    test_mse = mean_squared_error(y_test, y_preds )
-    average_mse = np.mean(test_mse)
-    print(f'MSE Result: { test_mse}')
+r.fit(X_train,y_train)
+y_preds=r.predict(X_test)
+test_mse = mean_squared_error(y_test, y_preds )
+average_mse = np.mean(test_mse)
+print(f'MSE Result: { test_mse}')
 
 print("Average Mean Squared Error:", average_mse)
 with open('metrics.txt', 'w') as outfile:
